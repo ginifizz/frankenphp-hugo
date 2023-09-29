@@ -1,0 +1,44 @@
+{{define "main"}}
+<section id="hero" class="bg-purple relative overflow-x-hidden">
+    <a href="https://les-tilleuls.coop/en" target="_blank" rel="noreferrer noopener"
+        class="z-40 bg-white px-8 py-2 text-xs text-purple ribbon | md:text-sm md:px-12">
+        <div class="flex flex-row justify-center items-center translate-x-[5%]">Made with <img class="w-4 h-4 mx-2"
+                src="img/heart.svg" alt="love"> by <img class="ml-2 h-4" src="img/logo_tilleuls.svg"
+                alt="Les-Tilleuls.coop"></div>
+    </a>
+    <a title="FrankenPHP on Github" aria-label="FrankenPHP on Github" href="https://github.com/dunglas/frankenphp"
+        target="_blank" rel="noreferrer noopener"
+        class="flex flex-row text-white absolute top-4 right-4 z-20 text-sm items-center"><img src="img/github.svg"
+            class="w-6 h-6" alt="GitHub"></a>
+    <div
+        class="container min-h-screen flex flex-col items-center justify-between relative z-10 pt-24 | md:pt-0 md:landscape:flex-row ">
+
+        <div
+            class="flex-1 flex justify-center items-center flex-col py-4 | sm:py-12 | md:items-start md:my-0 md:landscape:w-1/2 |">
+            <img src="img/logo_darkbg.svg" alt="Logo FrankenPHP">
+            <h1 class="text-white text-3xl mt-8 font-extrabold text-center | sm:text-4xl | md:text-left">The Modern Php
+                App
+                Server, <br> written in Go</h1>
+            <a href="https://github.com/dunglas/frankenphp#readme" target="_blank" rel="noreferrer noopener"
+                class="relative text-purple text-lg py-2 px-4 mt-8 font-bold transition-all duration-300 before:pointer-events-none before:transition-all before:duration-300 before:z-0 before:bg-green before:w-full before:h-full before:absolute-center after:z-0 after:absolute-center after:w-full after:h-full after:pointer-events-none after:border-2 after:border-green/0 after:scale-150 after:transition-all after:duration-300 hover:before:scale-50 hover:before:bg-green/0 hover:after:border-green hover:after:scale-100 hover:text-green"><span
+                    class="relative">Get
+                    started</span></a>
+        </div>
+        <img class="self-end max-w-xs mb-4 | sm:max-w-md | md:max-w-lg md:w-1/2 " src="img/elephant_cover.svg" alt="">
+    </div>
+</section>
+    <section id="features" aria-labelledby="features-heading"
+        class="bg-white pt-12 pb-36 relative before:clip-path-inclinated before:bg-white before:w-full before:h-48 before:absolute before:bottom-full before:left-0 translate-y-[0.5px]">
+        <div class="container">
+            <h2 id="features-heading" class="text-[0px]">Features</h2>
+    <div class="grid grid-cols-1 gap-20 | sm:grid-cols-2 | lg:grid-cols-3">
+        {{ with .Params.blocs }}
+        {{ range . }}
+        {{ partial "homebloc.html" (dict "image" .image "title" .title "content" .content) }}
+        {{ end }}
+        {{ end }}
+    </div>
+    </div></section>
+</div>
+
+{{end}}

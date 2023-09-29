@@ -1,0 +1,35 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: 'Poppins', system-ui, sans-serif;
+  }
+}
+
+@layer utilities {
+  .clip-path-inclinated {
+    clip-path: polygon(100% 0, 0% 100%, 100% 100%);
+  }
+  .clip-path-flag {
+    clip-path: polygon(50% 100%, 100% 0, 100% 100%, 0% 100%, 0% 0%);
+  }
+  .ribbon {
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translate(13.397459%, -100%) rotate(30deg); /* translateX: 100%*(1-cos(angleRotation) */
+    transform-origin: bottom left;
+  }
+  .link {
+    @apply font-semibold text-purple transition-colors duration-300 hover:bg-green/50;
+  }
+  .footer-link {
+    @apply font-semibold text-green transition-all underline decoration-transparent underline-offset-2 duration-300 hover:decoration-green;
+  }
+  .absolute-center {
+    @apply absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2;
+  }
+}
