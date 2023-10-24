@@ -1,4 +1,5 @@
 ---
+draft: true
 title: "FrankenPHP <strong class='text-green'>at a glance</strong>"
 overtitle: "Features"
 content:

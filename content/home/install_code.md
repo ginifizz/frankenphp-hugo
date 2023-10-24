@@ -1,4 +1,5 @@
 ---
+draft: true
 title: "It's so <strong class='text-green'>easy</strong> to configure!"
 overtitle: "Fast as lightning"
 code: |

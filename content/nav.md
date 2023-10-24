@@ -1,14 +1,56 @@
- Docs
+---
+draft: true
+---
+# FrankenPHP: Modern App Server for PHP
 
-* [The worker mode](/docs/worker/)
-* [Early Hints support (103 HTTP status code)](/docs/early-hints/)
-* [Real-time](/docs/mercure/)
-* [Configuration](/docs/config/)
-* [Docker images](/docs/docker/)
-* [Compile from sources](/docs/compile/)
-* [Create static binaries](/docs/static/)
-* [Known issues](/docs/known-issues/)
-* [Demo app (Symfony) and benchmarks](https://github.com/dunglas/frankenphp-demo/)
-* [Go library documentation](https://pkg.go.dev/github.com/dunglas/frankenphp/)
-* [Contributing and debugging](/contributing/)
+<h1 align="center"><a href="https://frankenphp.dev"><img src="frankenphp.png" alt="FrankenPHP" width="600"></a></h1>
 
+FrankenPHP is a modern application server for PHP built on top of the [Caddy](https://caddyserver.com/) web server.
+
+FrankenPHP gives superpowers to your PHP apps thanks to its stunning features: [*Early Hints*](docs/early-hints.md), [worker mode](docs/worker.md), [real-time capabilities](docs/mercure.md), automatic HTTPS, HTTP/2, and HTTP/3 support...
+
+FrankenPHP works with any PHP app and makes your Symfony projects faster than ever thanks to provided integration with the worker mode (Laravel Octane support coming).
+
+FrankenPHP can also be used as a standalone Go library to embed PHP in any app using `net/http`.
+
+[**Learn more** on *frankenphp.dev*](https://frankenphp.dev) and in this slide deck:
+
+<a href="https://dunglas.dev/2022/10/frankenphp-the-modern-php-app-server-written-in-go/"><img src="https://dunglas.dev/wp-content/uploads/2022/10/frankenphp.png" alt="Slides" width="600"></a>
+
+## Getting Started
+
+```console
+docker run -v $PWD:/app/public \
+    -p 80:80 -p 443:443 \
+    dunglas/frankenphp
+```
+
+Go to `https://localhost`, and enjoy!
+
+If you prefer not to use Docker, we provide standalone FrankenPHP binaries for Linux and macOS
+containing [PHP 8.2](https://www.php.net/releases/8.2/en.php) and most popular PHP extensions: [Download FrankenPHP](https://github.com/dunglas/frankenphp/releases)
+
+> Note: do not attempt to use `https://127.0.0.1`. Use `localhost` and accept the self-signed certificate. Caddy has an automatic TLS handling that auto-trusts some local-based hostnames like `localhost`, but it does not apply to IP addresses. More details [on Caddy's "automatic https" docs](https://caddyserver.com/docs/automatic-https#hostname-requirements).
+
+## Docs
+
+* [The worker mode](docs/worker.md)
+* [Early Hints support (103 HTTP status code)](docs/early-hints.md)
+* [Real-time](docs/mercure.md)
+* [Configuration](docs/config.md)
+* [Docker images](docs/docker.md)
+* [Compile from sources](docs/compile.md)
+* [Create static binaries](docs/static.md)
+* [Known issues](docs/known-issues.md)
+* [Demo app (Symfony) and benchmarks](https://github.com/dunglas/frankenphp-demo)
+* [Go library documentation](https://pkg.go.dev/github.com/dunglas/frankenphp)
+* [Contributing and debugging](CONTRIBUTING.md)
+
+## Examples and Skeletons
+
+* [Symfony](https://github.com/dunglas/symfony-docker)
+* [API Platform](https://api-platform.com/docs/distribution/)
+* [Laravel](docs/laravel.md)
+* [Sulu](https://sulu.io/blog/running-sulu-with-frankenphp)
+* [WordPress](https://github.com/dunglas/frankenphp-wordpress)
+* [Drupal](https://github.com/dunglas/frankenphp-drupal)

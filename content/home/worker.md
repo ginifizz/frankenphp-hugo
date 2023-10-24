@@ -1,4 +1,5 @@
 ---
+draft: true
 title: "Zoom on the <strong class='text-green'>worker mode</strong>!"
 overtitle: "Worker mode"
 content:

@@ -1,4 +1,5 @@
 ---
+draft: true
 title: "Get <strong class='text-green'>started</strong>!"
 layout: partials/home/getting_started
 overtitle: "One command to run them all"
