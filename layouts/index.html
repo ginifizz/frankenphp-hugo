@@ -1,21 +1,89 @@
+{{define "head"}}
+<script>
+    // Set things up
+    window.addEventListener(
+        "load",
+        (event) => {
+            const options = {
+                root: null, // La fenêtre du navigateur sera la zone d'intersection
+                rootMargin: '0px 0px 0px 0px', // Marges en haut, à droite, en bas et à gauche
+                threshold: 0.3, // Le seuil d'intersection (à personnaliser)
+            };
+            const observer = new IntersectionObserver(callback, options);
+
+            observer.observe(document.getElementById("dab"));
+            observer.observe(document.getElementById("bloc-0"));
+            observer.observe(document.getElementById("bloc-1"));
+            observer.observe(document.getElementById("bloc-2"));
+            observer.observe(document.getElementById("bloc-3"));
+            observer.observe(document.getElementById("bloc-4"));
+            observer.observe(document.getElementById("bloc-5"));
+            observer.observe(document.getElementById("code"));
+            observer.observe(document.getElementById("getting-started"));
+            parallax(document.getElementById("hero"), document.getElementById("hero-text"), -0.6, "Y");
+        },
+        false,
+    );
+
+    function displayEntry(entry) {
+        const idEntry = entry.target.id;
+        switch (idEntry) {
+            case "dab":
+                replaceClass(entry.target, "scale-100", "scale-75", entry.isIntersecting);
+                replaceClass(entry.target, "translate-x-0", "translate-x-[30%]", entry.isIntersecting);
+                replaceClass(document.getElementById("shape"), "rotate-0", "rotate-45", entry.isIntersecting);
+                break;
+            case "bloc-0":
+            case "bloc-2":
+            case "bloc-4":
+                replaceClass(entry.target, "opacity-100", "opacity-0", entry.isIntersecting);
+                break;
+            case "bloc-1":
+            case "bloc-3":
+            case "bloc-5":
+                replaceClass(entry.target, "opacity-100", "opacity-0", entry.isIntersecting);
+                break;
+            case "code":
+                replaceClass(document.getElementById("code-block"), "opacity-100", "opacity-0", entry.isIntersecting);
+                replaceClass(document.getElementById("code-legend"), "opacity-100", "opacity-0", entry.isIntersecting);
+                replaceClass(document.getElementById("code-block"), "-translate-x-0", "-translate-x-1/2", entry.isIntersecting);
+                replaceClass(document.getElementById("code-legend"), "translate-x-0", "translate-x-1/2", entry.isIntersecting);
+            case "getting-started":
+                replaceClass(document.getElementById("getting-started-code"), "opacity-100", "opacity-50", entry.isIntersecting);
+                replaceClass(document.getElementById("getting-started-legend"), "opacity-100", "opacity-50", entry.isIntersecting);
+                replaceClass(document.getElementById("getting-started-code"), "-translate-x-0", "-translate-x-1/2", entry.isIntersecting);
+                replaceClass(document.getElementById("getting-started-legend"), "translate-x-0", "translate-x-1/2", entry.isIntersecting);
+                break;
+        }
+        let entryText = document.querySelector(".entry");
+        console.log(`Intersecting: ${entry.isIntersecting} ${entry.target.id}`);
+    }
+
+    let callback = function (entries, observer) {
+        entries.forEach(entry => {
+            displayEntry(entry);
+        });
+    };
+
+    function replaceClass(el, classToAdd, classToRemove, condition) {
+        if (condition) {
+            if (!el.classList.contains(classToAdd)) el.classList.add(classToAdd);
+            if (el.classList.contains(classToRemove)) el.classList.remove(classToRemove);
+        } else {
+            if (el.classList.contains(classToAdd)) el.classList.remove(classToAdd);
+            if (!el.classList.contains(classToRemove)) el.classList.add(classToRemove);
+        }
+    }
+</script>
+{{end}}
 {{define "main"}}
 <section id="hero" class="bg-purple relative overflow-x-hidden">
-    <a href="https://les-tilleuls.coop/en" target="_blank" rel="noreferrer noopener"
-        class="z-40 bg-white px-8 py-2 text-xs text-purple ribbon | md:text-sm md:px-12">
-        <div class="flex flex-row justify-center items-center translate-x-[5%]">Made with <img class="w-4 h-4 mx-2"
-                src="img/heart.svg" alt="love"> by <img class="ml-2 h-4" src="img/logo_tilleuls.svg"
-                alt="Les-Tilleuls.coop"></div>
-    </a>
-    <a title="FrankenPHP on Github" aria-label="FrankenPHP on Github" href="https://github.com/dunglas/frankenphp"
-        target="_blank" rel="noreferrer noopener"
-        class="flex flex-row text-white absolute top-4 right-4 z-20 text-sm items-center"><img src="img/github.svg"
-            class="w-6 h-6" alt="GitHub"></a>
     <div
         class="container min-h-screen flex flex-col items-center justify-between relative z-10 pt-24 | md:pt-0 md:landscape:flex-row ">
 
-        <div
+        <div id="hero-text"
             class="flex-1 flex justify-center items-center flex-col py-4 | sm:py-12 | md:items-start md:my-0 md:landscape:w-1/2 |">
-            <img src="img/logo_darkbg.svg" alt="Logo FrankenPHP">
+            <img src="/img/logo_darkbg.svg" alt="Logo FrankenPHP">
             <h1 class="text-white text-3xl mt-8 font-extrabold text-center | sm:text-4xl | md:text-left">The Modern Php
                 App
                 Server, <br> written in Go</h1>
@@ -24,21 +92,48 @@
                     class="relative">Get
                     started</span></a>
         </div>
-        <img class="self-end max-w-xs mb-4 | sm:max-w-md | md:max-w-lg md:w-1/2 " src="img/elephant_cover.svg" alt="">
+        <img id="hero-img" class="self-end max-w-xs mb-4 | sm:max-w-md | md:max-w-lg md:w-1/2 "
+            src="/img/elephant_cover.svg" alt="">
     </div>
 </section>
-    <section id="features" aria-labelledby="features-heading"
-        class="bg-white pt-12 pb-36 relative before:clip-path-inclinated before:bg-white before:w-full before:h-48 before:absolute before:bottom-full before:left-0 translate-y-[0.5px]">
-        <div class="container">
-            <h2 id="features-heading" class="text-[0px]">Features</h2>
-    <div class="grid grid-cols-1 gap-20 | sm:grid-cols-2 | lg:grid-cols-3">
-        {{ with .Params.blocs }}
-        {{ range . }}
-        {{ partial "homebloc.html" (dict "image" .image "title" .title "content" .content) }}
-        {{ end }}
-        {{ end }}
+{{ partial "home/getting_started.html" . }}
+<section id="features" aria-labelledby="features-heading" class="bg-white pt-12 pb-36 relative">
+    {{ partial "home/features.html" . }}
+</section>
+{{ partial "home/install_code.html" . }}
+<section id="technos" class="w-full my-12 relative">
+    <div class="absolute z-20 h-full w-[10vw] bg-gradient-to-r from-white to-transparent left-0 top-0"></div>
+    <div class="absolute z-20 h-full w-[10vw] bg-gradient-to-l from-white to-transparent right-0 top-0"></div>
+    <div class="container text-center relative">
+        <h2 class="text-5xl text-purple font-bold mb-8 leading-snug ">Native support for</h2>
+        <div class="relative w-full h-64">
+            <div class="flex flex-row gap-8 absolute w-[700%] sm:w-[500%] md:w-[500%] lg:w-[350%] animate-defile">
+                {{ with .Params.technos }}
+                {{ range $index, $element := . }}
+                <a target="_blank" href="{{ .url }}" class="w-full grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all">
+                    <img class="object-contain w-full h-full mb-2" src="/img/technos/{{ .image }}" alt={{ .title }} />
+                </a>
+                {{ end }}
+                {{ end }}
+                {{ with .Params.technos }}
+                {{ range $index, $element := . }}
+                <a target="_blank" href="{{ .url }}"
+                    class="w-full grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all">
+                    <img class="object-contain w-full h-full mb-2" src="/img/technos/{{ .image }}" alt={{ .title }} />
+                </a>
+                {{ end }}
+                {{ end }}
+                {{ with .Params.technos }}
+                {{ range $index, $element := . }}
+                <a target="_blank" href="{{ .url }}"
+                    class="w-full grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all">
+                    <img class="object-contain w-full h-full mb-2" src="/img/technos/{{ .image }}" alt={{ .title }} />
+                </a>
+                {{ end }}
+                {{ end }}
+            </div>
+        </div>
     </div>
-    </div></section>
-</div>
-
+</section>
+{{ partial "home/modern.html" . }}
 {{end}}

@@ -8,7 +8,7 @@
     font-family: 'Poppins', system-ui, sans-serif;
   }
   pre {
-    @apply whitespace-pre-wrap text-sm md:text-base;
+    @apply whitespace-pre-wrap;
   }
 }
 
@@ -37,8 +37,5 @@
   }
   .sidebar ul {
     @apply flex flex-col gap-4;
-  }
-  section {
-    @apply overflow-x-clip;
   }
 }

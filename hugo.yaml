@@ -1,0 +1,19 @@
+
+baseURL: 'https://example.org/'
+languageCode: 'en-us'
+title: 'My New Hugo Site'
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
+  highlight:
+    codeFences: true
+    guessSyntax: true
+    noClasses: false
+menu:
+  main:
+  - name: Docs
+    pageRef: /docs/
+build:
+  ignoreFiles:
+      - "^home/"

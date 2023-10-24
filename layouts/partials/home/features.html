@@ -1,0 +1,13 @@
+{{ with .Site.GetPage "/home/features.md" }}
+<div class="container">
+    <h2 id="features-heading" class="text-[0px]">{{ .Params.title }}</h2>
+    <div class="grid grid-cols-1 gap-20 | sm:grid-cols-2 | lg:grid-cols-3">
+        {{ with .Params.content }}
+        {{ range $index, $element := . }}
+        {{ partial "home/feature.html" (dict "image" $element.image "title" $element.title "content" $element.content
+        "id" $index ) }}
+        {{ end }}
+        {{ end }}
+    </div>
+</div>
+{{ end }}
