@@ -1,7 +1,7 @@
 
-baseURL: 'https://example.org/'
+baseURL: 'https://frankenphp.dev/'
 languageCode: 'en-us'
-title: 'My New Hugo Site'
+title: 'FrankenPHP: the modern PHP app server'
 markup:
   goldmark:
     renderer:

@@ -5,12 +5,23 @@
     <link>https://example.org/</link>
     <description>Recent content in The Modern Php App Server, written in Go on My New Hugo Site</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Fri, 20 Oct 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://example.org/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language><atom:link href="https://example.org/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Titre de la page</title>
+      <title></title>
+      <link>https://example.org/contributing/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.org/contributing/</guid>
+      <description>Contributing Compiling PHP With Docker (Linux) Build the dev Docker image:
+docker build -t frankenphp-dev -f dev.Dockerfile . docker run --cap-add=SYS_PTRACE --security-opt seccomp=unconfined -p 8080:8080 -p 443:443 -v $PWD:/go/src/app -it frankenphp-dev The image contains the usual development tools (Go, GDB, Valgrind, Neovim&amp;hellip;).
+If docker version is lower than 23.0, build is failed by dockerignore pattern issue. Add directories to .dockerignore.
+!testdata/*.php !testdata/*.txt +!caddy +!C-Thread-Pool +!internal Without Docker (Linux and macOS) Follow the instructions to compile from sources and pass the --debug configuration flag.</description>
+    </item>
+    
+    <item>
+      <title></title>
       <link>https://example.org/docs/compile/</link>
-      <pubDate>Fri, 20 Oct 2023 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://example.org/docs/compile/</guid>
       <description>Compile From Sources This document explain how to create a FrankenPHP build that will load PHP as a dymanic library. This is the recommended method.
@@ -146,11 +157,20 @@ Custom Apps &amp;lt;?php // public/index.php // Boot your app require __DIR__.&a
     
     <item>
       <title></title>
-      <link>https://example.org/install_code/</link>
+      <link>https://example.org/nav/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://example.org/install_code/</guid>
-      <description>{ # Enable FrankenPHP frankenphp # Configure when the directive must be executed order php_server before file_server } localhost { # Enable compression (optional) encode zstd gzip # Execute PHP files in the current directory and serve assets php_server } </description>
+      <guid>https://example.org/nav/</guid>
+      <description> The worker mode Early Hints support (103 HTTP status code) Real-time Configuration Docker images Compile from sources Create static binaries Known issues Demo app (Symfony) and benchmarks Go library documentation Contributing and debugging </description>
+    </item>
+    
+    <item>
+      <title>&lt;strong class=&#39;text-green&#39;&gt;Moderner&lt;/strong&gt; PHP Than Ever!</title>
+      <link>https://example.org/home/modern/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.org/home/modern/</guid>
+      <description></description>
     </item>
     
     <item>
@@ -169,6 +189,15 @@ Custom Apps &amp;lt;?php // public/index.php // Boot your app require __DIR__.&a
       
       <guid>https://example.org/home/getting_started/</guid>
       <description>Get a production-grade PHP server up and running in just one command!</description>
+    </item>
+    
+    <item>
+      <title>It&#39;s so &lt;strong class=&#39;text-green&#39;&gt;easy&lt;/strong&gt; to configure!</title>
+      <link>https://example.org/home/install_code/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.org/home/install_code/</guid>
+      <description>Less than five lines of code: it&amp;rsquo;s now all you need to start a production-grade PHP server (automatic HTTPS, HTTP/3, Zstandard compression&amp;hellip;), powered by Caddy.</description>
     </item>
     
   </channel>

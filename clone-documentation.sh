@@ -2,9 +2,9 @@ repo_url="git@github.com:dunglas/frankenphp.git"
 dossier_a_cloner="docs"
 dossier_destination="$PWD/content"
 nav_destination="$PWD/content/nav.md"
-temp_dir="temp-documentation"
+temp_dir="$PWD/temp-documentation"
 
-git clone $repo_url $temp_dir
+git clone https://$GITHUB_KEY@github.com/dunglas/frankenphp.git $temp_dir
 cp -r $temp_dir/$dossier_a_cloner $dossier_destination
 
 cp "$temp_dir/CONTRIBUTING.md" $dossier_destination
@@ -26,5 +26,6 @@ done
 sed -n '/^## Docs$/,/^##/p' "$temp_dir/README.md" | sed '/^##/d' > $nav_destination
 sed -i  '' 's|\](\([^)]*\).md)|\](/\1/)|g' $nav_destination
 sed -i '' 's|CONTRIBUTING|contributing|g' $nav_destination
+sed -i '' 's|/docs/docs/|/docs/|g' $nav_destination
 rm -rf $temp_dir
 

@@ -2,14 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://example.org/docs/</loc>
-    <lastmod>2023-10-20T00:00:00+00:00</lastmod>
+    <loc>https://example.org/contributing/</loc>
   </url><url>
-    <loc>https://example.org/</loc>
-    <lastmod>2023-10-20T00:00:00+00:00</lastmod>
+    <loc>https://example.org/docs/</loc>
   </url><url>
     <loc>https://example.org/docs/compile/</loc>
-    <lastmod>2023-10-20T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://example.org/docs/config/</loc>
   </url><url>
@@ -29,11 +26,15 @@
   </url><url>
     <loc>https://example.org/docs/worker/</loc>
   </url><url>
+    <loc>https://example.org/home/</loc>
+  </url><url>
     <loc>https://example.org/home/getting_started/docker/</loc>
   </url><url>
     <loc>https://example.org/home/getting_started/standard/</loc>
   </url><url>
-    <loc>https://example.org/install_code/</loc>
+    <loc>https://example.org/nav/</loc>
+  </url><url>
+    <loc>https://example.org/home/modern/</loc>
   </url><url>
     <loc>https://example.org/categories/</loc>
   </url><url>
@@ -41,8 +42,10 @@
   </url><url>
     <loc>https://example.org/home/getting_started/</loc>
   </url><url>
-    <loc>https://example.org/home/</loc>
+    <loc>https://example.org/home/install_code/</loc>
   </url><url>
     <loc>https://example.org/tags/</loc>
+  </url><url>
+    <loc>https://example.org/</loc>
   </url>
 </urlset>
