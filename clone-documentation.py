@@ -10,7 +10,7 @@ repo_url = "https://" + token + "@github.com/dunglas/frankenphp.git"
 dossier_a_cloner = "docs"
 dossier_destination = os.path.abspath("content")
 docs_destination = os.path.join(dossier_destination, "docs")
-nav_destination = os.path.abspath("content/nav.md")
+nav_destination = os.path.abspath("data/nav.yaml")
 temp_dir = os.path.abspath("temp-documentation")
 
 # Regex pour effectuer les transformations
@@ -98,8 +98,29 @@ start_index = content.find("## Docs")
 end_index = content.find("##", start_index + 1)
 nav_content = content[start_index:end_index].replace("##", "")
 nav_content = re.sub(regexLinks, fixLinks, nav_content)  
+
+def markdown_to_yaml(markdown_text):
+    links = []
+
+    # Utilisation de regex pour extraire les liens et leurs titres
+    link_pattern = r'\[([^\]]+)\]\(([^)]+)\)'
+    matches = re.findall(link_pattern, markdown_text)
+
+    for match in matches:
+        title = match[0]
+        url = match[1]
+        links.append({'title': title, 'url': url})
+
+    # Formater les liens en YAML
+    yaml_output = "links:\n"
+    for link in links:
+        yaml_output += f"  - title: {link['title']}\n    url: {link['url']}\n"
+
+    return yaml_output
+
+yaml_output = markdown_to_yaml(nav_content)
 with open(nav_destination, 'w') as file:
-    file.write(nav_content)
+    file.write(yaml_output)
 
 # Supprimer le répertoire temporaire
 shutil.rmtree(temp_dir)
