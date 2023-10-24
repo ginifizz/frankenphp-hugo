@@ -98,7 +98,6 @@ start_index = content.find("## Docs")
 end_index = content.find("##", start_index + 1)
 nav_content = content[start_index:end_index].replace("##", "")
 nav_content = re.sub(regexLinks, fixLinks, nav_content)  
-nav_content = f'---\ndraft: true\n---\n{content}'
 with open(nav_destination, 'w') as file:
     file.write(nav_content)
 

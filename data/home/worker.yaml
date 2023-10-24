@@ -1,5 +1,3 @@
----
-draft: true
 title: "Zoom on the <strong class='text-green'>worker mode</strong>!"
 overtitle: "Worker mode"
 content:
@@ -27,4 +25,3 @@ content:
   - title: "Simplicity"
     content: | 
       Uses plain old superglobals: **no need for PSR-7 etc**
----

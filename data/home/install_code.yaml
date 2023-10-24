@@ -1,5 +1,3 @@
----
-draft: true
 title: "It's so <strong class='text-green'>easy</strong> to configure!"
 overtitle: "Fast as lightning"
 code: |
@@ -18,5 +16,5 @@ code: |
         php_server
     }
     ```
----
-Less than five lines of code: it's now all you need to start a production-grade PHP server (automatic HTTPS, HTTP/3, Zstandard compression...), powered by Caddy.
+content: |
+  Less than five lines of code: it's now all you need to start a production-grade PHP server (automatic HTTPS, HTTP/3, Zstandard compression...), powered by Caddy.

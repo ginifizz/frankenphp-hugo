@@ -1,5 +1,3 @@
----
-draft: true
 title: "Native support for"
 content:
   - image: "drupal.png"
@@ -20,4 +18,3 @@ content:
   - image: "api-platform.png"
     title: "API Platform"
     url: https://api-platform.com/docs/distribution/
----

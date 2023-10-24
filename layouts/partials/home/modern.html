@@ -1,12 +1,12 @@
-{{ with .Site.GetPage "/home/modern.md" }}
+{{ with .Site.Data.home.modern }}
 <section id="modern" class="mb-24 pt-12 px-4">
     <div class="container relative max-w-6xl bg-gray-100 py-12 rounded-[50px] px-8 md:px-14 overflow-hidden">
         <div class="flex flex-col gap-24 items-center justify-center md:flex-row relative">
             <div class="flex-1 relative z-10">
-                <div class="text-lg uppercase mb-2 text-purple-light text-center md:text-left">{{ .Params.overtitle }}</div>
-                <h2 class="text-5xl font-bold mb-8 text-purple leading-tight text-center md:text-left">{{ .Params.title | safeHTML }}</h2>
+                <div class="text-lg uppercase mb-2 text-purple-light text-center md:text-left">{{ .overtitle }}</div>
+                <h2 class="text-5xl font-bold mb-8 text-purple leading-tight text-center md:text-left">{{ .title | safeHTML }}</h2>
                 <ul class="text-base font-light">
-                    {{ with .Params.content }}
+                    {{ with .content }}
                         {{ range . }}
                         <li class="my-3 px-2 py-1 flex flex-row gap-4">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
@@ -38,9 +38,9 @@
             </div>
         </div>
         <div class="text-center">
-            <a href="{{ .Params.link.url }}" target="_blank" rel="noreferrer noopener"
+            <a href="{{ .link.url }}" target="_blank" rel="noreferrer noopener"
                 class="mt-12 relative text-purple text-lg py-2 mx-auto  md:mt-4 px-4 inline-block font-bold transition-all duration-300 before:pointer-events-none before:transition-all before:duration-300 before:z-0 before:bg-green before:w-full before:h-full before:absolute-center after:z-0 after:absolute-center after:w-full after:h-full after:pointer-events-none after:border-2 after:border-green/0 after:scale-150 after:transition-all after:duration-300 hover:before:scale-50 hover:before:bg-green/0 hover:after:border-green hover:after:scale-100 hover:text-green"><span
-                    class="relative">{{ .Params.link.text }}</span></a>
+                    class="relative">{{ .link.text }}</span></a>
         </div>
     </div>
 
