@@ -1,14 +1,19 @@
 ---
-title: "Features"
+title: "FrankenPHP <strong class='text-green'>at a glance</strong>"
+overtitle: "Features"
 content:
   - image: "/img/box.svg"
     title: "Extensible"
     content: |
       Compatible with most PHP extensions and Caddy modules. PHP 8.2, compatible with most PHP extensions
-  - image: "/img/worker.svg"
+  - image: "/img/reload.svg"
     title: "Graceful reload"
     content: |
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque lectus massa, consequat non elit vitae, posuere vulputate turpis.
+      Update applications, ensuring uninterrupted service and minimal downtime with graceful reloads.
+  - image: "/img/worker.svg"
+    title: "Worker mode"
+    content: |
+      Boot your application once and keep it in memory! It is ready to handle incoming requests in a few milliseconds. FrankenPHP relies on Go's iconic feature: goroutines!
   - image: "/img/one.svg"
     title: "Only one service"
     content: |
@@ -25,23 +30,23 @@ content:
     title: "Real-time"
     content: |
       FrankenPHP has a built-in <a href="https://mercure.rocks" target="_blank" rel="noreferrer noopener" class="link">Mercure</a> hub. Send events from your PHP apps to all connected browsers, they instantly receive the payload as a JavaScript event!
-  - image: "/img/worker.svg"
+  - image: "/img/zip.svg"
     title: "Zstandard and Gzip compression"
     content: |
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque lectus massa, consequat non elit vitae, posuere vulputate turpis.
-  - image: "/img/worker.svg"
+      Enhance Your Data Compression Capabilities
+  - image: "/img/log.svg"
     title: "Structured logging"
     content: |
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque lectus massa, consequat non elit vitae, posuere vulputate turpis.
-  - image: "/img/worker.svg"
+      Bring a more defined format and details to your logging.
+  - image: "/img/metrics.svg"
     title: "Prometheus metrics and tracing"
     content: |
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque lectus massa, consequat non elit vitae, posuere vulputate turpis.
-  - image: "/img/worker.svg"
-    title: "HTTP2 & HTTP3"
+      Thanks to Caddy, various Prometheus metrics are exposed!
+  - image: "/img/http.svg"
+    title: "HTTP/2 & HTTP/3"
     content: |
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque lectus massa, consequat non elit vitae, posuere vulputate turpis.
-  - image: "/img/worker.svg"
+      Native support for HTTPS, HTTP/2 and even **HTTP/3**
+  - image: "/img/https.svg"
     title: "HTTPS Automation"
     content: |
       Automatic HTTPS certificate generation, renewal and revocation

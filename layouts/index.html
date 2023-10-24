@@ -12,12 +12,9 @@
             const observer = new IntersectionObserver(callback, options);
 
             observer.observe(document.getElementById("dab"));
-            observer.observe(document.getElementById("bloc-0"));
-            observer.observe(document.getElementById("bloc-1"));
-            observer.observe(document.getElementById("bloc-2"));
-            observer.observe(document.getElementById("bloc-3"));
-            observer.observe(document.getElementById("bloc-4"));
-            observer.observe(document.getElementById("bloc-5"));
+            for (i = 0; i<12; i++) {
+                observer.observe(document.getElementById(`bloc-${i}`));
+            }
             observer.observe(document.getElementById("code"));
             observer.observe(document.getElementById("getting-started"));
             parallax(document.getElementById("hero"), document.getElementById("hero-text"), -0.6, "Y");
@@ -27,27 +24,21 @@
 
     function displayEntry(entry) {
         const idEntry = entry.target.id;
-        switch (idEntry) {
+        if (/^bloc-\d+$/.test(idEntry)) {
+            replaceClass(entry.target, "opacity-100", "opacity-0", entry.isIntersecting);
+        }
+        else switch (idEntry) {
             case "dab":
                 replaceClass(entry.target, "scale-100", "scale-75", entry.isIntersecting);
                 replaceClass(entry.target, "translate-x-0", "translate-x-[30%]", entry.isIntersecting);
                 replaceClass(document.getElementById("shape"), "rotate-0", "rotate-45", entry.isIntersecting);
                 break;
-            case "bloc-0":
-            case "bloc-2":
-            case "bloc-4":
-                replaceClass(entry.target, "opacity-100", "opacity-0", entry.isIntersecting);
-                break;
-            case "bloc-1":
-            case "bloc-3":
-            case "bloc-5":
-                replaceClass(entry.target, "opacity-100", "opacity-0", entry.isIntersecting);
-                break;
             case "code":
-                replaceClass(document.getElementById("code-block"), "opacity-100", "opacity-0", entry.isIntersecting);
                 replaceClass(document.getElementById("code-legend"), "opacity-100", "opacity-0", entry.isIntersecting);
-                replaceClass(document.getElementById("code-block"), "-translate-x-0", "-translate-x-1/2", entry.isIntersecting);
-                replaceClass(document.getElementById("code-legend"), "translate-x-0", "translate-x-1/2", entry.isIntersecting);
+                replaceClass(document.getElementById("code-block"), "opacity-100", "opacity-0", entry.isIntersecting);
+                replaceClass(document.getElementById("code-legend"), "-translate-x-0", "-translate-x-1/2", entry.isIntersecting);
+                replaceClass(document.getElementById("code-block"), "translate-x-0", "translate-x-1/2", entry.isIntersecting);
+                replaceClass(document.getElementById("lightning2"), "scale-100", "scale-0", entry.isIntersecting);
             case "getting-started":
                 replaceClass(document.getElementById("getting-started-code"), "opacity-100", "opacity-50", entry.isIntersecting);
                 replaceClass(document.getElementById("getting-started-legend"), "opacity-100", "opacity-50", entry.isIntersecting);
@@ -97,16 +88,16 @@
     </div>
 </section>
 {{ partial "home/getting_started.html" . }}
-<section id="features" aria-labelledby="features-heading" class="bg-white pt-12 pb-36 relative">
+<section id="features" aria-labelledby="features-heading" class="py-12 relative">
     {{ partial "home/features.html" . }}
 </section>
-{{ partial "home/install_code.html" . }}
-<section id="technos" class="w-full my-12 relative">
+{{ partial "home/modern.html" . }}
+<section id="technos" class="w-full my-8 relative">
     <div class="absolute z-20 h-full w-[10vw] bg-gradient-to-r from-white to-transparent left-0 top-0"></div>
     <div class="absolute z-20 h-full w-[10vw] bg-gradient-to-l from-white to-transparent right-0 top-0"></div>
     <div class="container text-center relative">
-        <h2 class="text-5xl text-purple font-bold mb-8 leading-snug ">Native support for</h2>
-        <div class="relative w-full h-64">
+        <h2 class="text-5xl text-purple font-bold mb-8 leading-tight ">Native support for</h2>
+        <div class="relative w-full h-32 xl:h-40">
             <div class="flex flex-row gap-8 absolute w-[700%] sm:w-[500%] md:w-[500%] lg:w-[350%] animate-defile">
                 {{ with .Params.technos }}
                 {{ range $index, $element := . }}
@@ -135,5 +126,5 @@
         </div>
     </div>
 </section>
-{{ partial "home/modern.html" . }}
+{{ partial "home/install_code.html" . }}
 {{end}}

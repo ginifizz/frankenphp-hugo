@@ -26,10 +26,10 @@ def fixLinks(match):
     # Vérifier si l'URL commence par "http" ou "/"
     if url.startswith("http") or url.startswith("/"):
         # Pas de changement pour les liens HTTP ou ceux commençant par "/"
-        return f'[{texte_lien}]({url})'
+        return f'[{texte_lien}]({url}/)'
     elif (url.startswith("docs/") and url.endswith(".md")) or url.endswith(".md"):
         # Ajouter "/" devant et retirer .md pour les liens "docs"
-        return f'[{texte_lien}](/{url[:-3]})'
+        return f'[{texte_lien}](/{url[:-3]}/)'
 
 # supprumer le repo temporaire s'il existe
 if os.path.exists(temp_dir):
@@ -51,8 +51,17 @@ with open(os.path.join(dossier_destination, "contributing.md"), 'r') as file:
 
 
 content = re.sub(regexLinks, fixLinks, content)    
+regex_h1 = re.search(r'#\s+([^\n]+)', content)
+# Vérifier si la regex a trouvé un résultat
+if regex_h1 is not None:
+     title = "FrankenPHP | " +regex_h1.group(1)
+else:
+    # Utiliser un titre par défaut ou faire quelque chose d'autre
+    title = "FrankenPHP"
+content = f'---\nlayout: docs\ntitle: "{title}"\n---\n{content}'
 with open(os.path.join(dossier_destination, "contributing.md"), 'w') as file:
     file.write(content)
+
 
 # Modifier README.md
 shutil.copy(os.path.join(temp_dir, "README.md"), dossier_destination)
@@ -69,7 +78,15 @@ for filename in os.listdir(os.path.join(dossier_destination, "docs")):
         filepath = os.path.join(dossier_destination, "docs", filename)
         with open(filepath, 'r') as file:
             content = file.read()
-        content = f'---\nlayout: docs\n---\n{content}'
+
+        regex_h1 = re.search(r'#\s+([^\n]+)', content)
+        # Vérifier si la regex a trouvé un résultat
+        if regex_h1 is not None:
+            title = "FrankenPHP | " +regex_h1.group(1)
+        else:
+            # Utiliser un titre par défaut ou faire quelque chose d'autre
+            title = "FrankenPHP"
+        content = f'---\nlayout: docs\ntitle: "{title}"\n---\n{content}'
         content = re.sub(regexLinks, fixLinks, content)  
         with open(filepath, 'w') as file:
             file.write(content)
