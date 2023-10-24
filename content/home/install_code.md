@@ -1,6 +1,5 @@
 ---
 title: "It's so <strong class='text-green'>easy</strong> to configure!"
-layout: partials/home/install_code
 overtitle: "Fast as lightning"
 code: |
     ```caddyfile

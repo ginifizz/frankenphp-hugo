@@ -1,5 +1,4 @@
 
-baseURL: 'https://frankenphp.dev/'
 languageCode: 'en-us'
 title: 'FrankenPHP: the modern PHP app server'
 markup:
@@ -12,7 +11,7 @@ markup:
     noClasses: false
 menu:
   main:
-  - name: Docs
+  - name: Documentation
     pageRef: /docs/
 build:
   ignoreFiles:

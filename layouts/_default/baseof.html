@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -21,7 +21,7 @@
     <title>{{.Title}}</title>
     <link rel="stylesheet" href="/dist/output.css">
     <link rel="stylesheet" href="/dist/syntax.css">
-    <script src="{{ .Site.BaseURL }}js/parallax.js"></script>
+    <script src="/js/parallax.js"></script>
     {{ block "head" .}} {{ end }}
 </head>
 <body>
@@ -31,7 +31,7 @@
     {{ block "main" .}} {{ end }}
     </div>
     <footer
-        class="relative bg-purple min-h-[72px] pt-8 pb-12 text-purple text-center before:bg-purple before:clip-path-flag before:w-full before:h-12 before:absolute before:top-px before:transform before:-translate-y-full before:left-0 | lg:before:h-24">
+        class="relative bg-purple-dark min-h-[72px] pt-8 pb-12 text-purple text-center before:bg-purple-dark before:clip-path-flag before:w-full before:h-12 before:absolute before:top-px before:transform before:-translate-y-full before:left-0 | lg:before:h-24">
         <img src="/img/elephant_footer.svg" alt=""
             class="h-20 w-20 absolute bottom-full left-1/2 transform translate-y-[0.5px] -translate-x-1/2">
         <p class="text-sm text-white mb-1">Brought to you by <a class="footer-link" href="https://dunglas.dev/"
