@@ -37,6 +37,9 @@ module.exports = {
       maxWidth: {
         '8xl': '90rem',
       },
+      height: {
+        0.75: '3px',
+      },
       boxShadow: {
         header: '0px 4px 10px rgba(0,0,0,0.05)',
       },
