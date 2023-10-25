@@ -1,7 +1,6 @@
 
 languageCode: 'en-us'
 title: 'FrankenPHP: the modern PHP app server'
-baseURL: 'https://ginifizz.github.io/frankenphp-hugo/'
 markup:
   goldmark:
     renderer:
@@ -13,8 +12,9 @@ markup:
 menu:
   main:
   - name: Documentation
-    pageRef: /docs/
+    pageRef: docs/
 build:
   ignoreFiles:
       - "^home/"
 taxonomies:
+relativeURLs: true
