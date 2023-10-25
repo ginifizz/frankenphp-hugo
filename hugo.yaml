@@ -12,7 +12,7 @@ markup:
 menu:
   main:
   - name: Documentation
-    pageRef: docs/
+    pageRef: /docs/
 build:
   ignoreFiles:
       - "^home/"
